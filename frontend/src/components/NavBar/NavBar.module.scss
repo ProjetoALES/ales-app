@@ -1,0 +1,49 @@
+img {
+  margin-right: 1em;
+}
+
+nav {
+  .navbar-nav {
+    margin: 2em;
+  }
+
+  .navLink {
+    margin: 0 2em;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+  .buttonsContainer {
+    position: absolute;
+    right: 1em;
+    display: flex;
+
+    button {
+      margin: 0 1em;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    .navContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .navLink {
+        margin: 0.3em;
+      }
+
+      .buttonsContainer {
+        position: initial;
+        display: flex;
+        flex-direction: column;
+
+        button {
+          margin: 0.5em 0;
+        }
+      }
+    }
+  }
+}
