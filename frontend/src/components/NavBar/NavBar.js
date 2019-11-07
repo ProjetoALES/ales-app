@@ -30,10 +30,10 @@ const NavBar = () => (
           <Button size="lg" variant="success">
             Entrar
           </Button>
-          <Button size="lg" variant="outline-primary">
+          <Button size="lg" variant="primary">
             Minha Área
           </Button>
-          <Button size="lg" variant="outline-danger">
+          <Button size="md" variant="outline-danger">
             Sair
           </Button>
         </div>
