@@ -1,0 +1,56 @@
+.mainContainer {
+  height: 40em;
+  background: #1089ff;
+  background-image: linear-gradient(
+      rgba(62, 136, 233, 0.85),
+      rgba(62, 136, 233, 0.85)
+    ),
+    url("../../assets/images/ales-landing-background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .container {
+    height: 100%;
+    background: transparent;
+  }
+
+  .headerContainer {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+    .title {
+      margin-bottom: 1em;
+    }
+
+    .subTitle:last-of-type {
+      margin-bottom: 2em;
+    }
+
+    button {
+      color: #fff;
+      margin: 1em 0;
+      padding: 0.7em 2em;
+      font-size: 1.3em;
+      font-weight: 600;
+      &:last-of-type {
+        color: #ffc107;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
