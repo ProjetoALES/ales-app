@@ -1,0 +1,34 @@
+.section {
+  margin: 5em 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #00274b;
+  font-size: 1.2em;
+
+  .sectionTitle {
+    h3 {
+      margin-bottom: 1em;
+      font-weight: 400;
+    }
+  }
+
+  .sectionDescription {
+    padding: 1em 15em;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    margin: 2em 0;
+    padding: 1em;
+
+    .sectionDescription {
+      padding: 1em;
+    }
+  }
+}
