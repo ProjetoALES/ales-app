@@ -1,6 +1,5 @@
 .mainContainer {
-  height: 40em;
-  padding-top: 5em;
+  padding: 9% 0 5% 0;
   background: #1089ff;
   background-image: linear-gradient(
       rgba(62, 136, 233, 0.85),
@@ -54,7 +53,7 @@
 
 @media only screen and (max-width: 900px) {
   .mainContainer {
-    padding-top: 6em;
+    padding-top: 8em;
     .headerContainer {
       display: flex;
       flex-direction: column;
