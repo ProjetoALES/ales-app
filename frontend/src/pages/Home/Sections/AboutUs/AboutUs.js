@@ -21,8 +21,8 @@ const AboutUs = () => (
           <h5>Apoiado por:</h5>
         </div>
         <div className={styles.subSectionPartnership}>
-          <img src={ProecLogo} width="100" height="100" />
-          <img src={UnicampLogo} width="50" height="50" />
+          <img src={ProecLogo} width="100" height="100" alt="logo" />
+          <img src={UnicampLogo} width="50" height="50" alt="logo" />
         </div>
       </div>
     </div>
