@@ -1,0 +1,56 @@
+.section {
+  margin: 0;
+  padding: 4em 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: lighten(#333, 5%);
+  font-size: 1.2em;
+
+  .sectionTitle {
+    h3 {
+      margin: 1em 0 1em 0;
+      font-weight: 400;
+    }
+  }
+
+  .sectionDescription {
+    h3 {
+      font-size: 1.1em;
+      font-weight: 400;
+    }
+  }
+
+  .formContainer {
+    width: 25%;
+
+    .formGroup {
+      margin: 2em 0;
+    }
+
+    button {
+      padding: 0.5em 2em;
+      margin: 1em 0;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    .formContainer {
+      width: 80%;
+
+      .formGroup {
+        margin: 3em 0;
+
+        input {
+          height: 3em;
+        }
+      }
+    }
+  }
+}
