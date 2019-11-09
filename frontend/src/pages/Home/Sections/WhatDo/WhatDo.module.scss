@@ -1,10 +1,12 @@
+@import "../../../../styles/colors.module.scss";
+
 .section {
   margin: 5em 0;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #00274b;
+  color: $gray-darker;
   font-size: 1.2em;
 
   .sectionTitle {
@@ -28,7 +30,7 @@
       .subSectionTitle {
         a {
           text-decoration: none;
-          color: #1b7db6;
+          color: $brand-blue;
         }
         h5 {
           font-weight: 400;

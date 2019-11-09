@@ -1,3 +1,5 @@
+@import "../../../../styles/colors.module.scss";
+
 .section {
   margin: 0;
   height: 95em;
@@ -5,8 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #00274b;
-  background: #eee;
+  background: $gray-lighter;
   font-size: 1.2em;
 
   .sectionTitle {
@@ -44,7 +45,7 @@
     margin: 0;
     padding: 1em;
     height: 66em;
-    color: #444;
+    color: $gray-darker;
     font-weight: 400;
 
     .sectionContainer {
