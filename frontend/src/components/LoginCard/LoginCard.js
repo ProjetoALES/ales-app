@@ -6,7 +6,7 @@ import { Form, Button } from "react-bootstrap";
 const LoginCard = () => (
   <div className={styles.container}>
     <div>
-      <img src={Alessauro} width="110" height="120" />
+      <img src={Alessauro} width="110" height="120" alt="ales-mascote" />
     </div>
     <form className={styles.formContainer}>
       <div className={styles.formGroup}>
@@ -32,7 +32,7 @@ const LoginCard = () => (
         Entrar
       </Button>
       <div>
-        <a href="/login">Esqueci a senha</a>
+        <a href="/reset-password">Esqueci a senha</a>
       </div>
     </form>
   </div>
