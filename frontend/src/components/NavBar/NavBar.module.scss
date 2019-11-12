@@ -33,6 +33,14 @@ nav {
         align-items: center;
         width: 60%;
 
+        a {
+          width: 100%;
+          text-align: center;
+          button {
+            width: 100%;
+          }
+        }
+
         button {
           width: 100%;
           margin: 0.5em 0;
