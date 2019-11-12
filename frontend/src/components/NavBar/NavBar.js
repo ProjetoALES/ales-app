@@ -24,7 +24,7 @@ const NavBar = () => (
     <Navbar.Toggle />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className={styles.navContainer}>
-        <Nav.Link href="#" className={styles.navLink}>
+        <Nav.Link href="/get-there" className={styles.navLink}>
           Como Chegar
         </Nav.Link>
         <Nav.Link href="#" className={styles.navLink}>
