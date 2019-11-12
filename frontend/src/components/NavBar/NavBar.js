@@ -7,7 +7,7 @@ import Logo from "../../assets/images/logo-ales.svg";
 const NavBar = () => (
   <Navbar
     collapseOnSelect
-    expand="lg"
+    expand="xl"
     variant="light"
     bg="light"
     className="fixed-top"
@@ -21,7 +21,7 @@ const NavBar = () => (
         className="d-inline-block align-top"
       />
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Toggle />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className={styles.navContainer}>
         <Nav.Link href="#" className={styles.navLink}>
