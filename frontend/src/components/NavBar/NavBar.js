@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./NavBar.module.scss";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Logo from "../../assets/images/logo-ales.svg";
 
@@ -33,9 +34,11 @@ const NavBar = () => (
           Matérias
         </Nav.Link>
         <div className={styles.buttonsContainer}>
-          <Button size="lg" variant="success">
-            Entrar
-          </Button>
+          <Link to="/login">
+            <Button size="lg" variant="success">
+              Entrar
+            </Button>
+          </Link>
           <Button size="lg" variant="primary">
             Minha Área
           </Button>
