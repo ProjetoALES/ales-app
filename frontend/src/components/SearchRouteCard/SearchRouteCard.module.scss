@@ -1,0 +1,85 @@
+@import "../../styles/colors.module.scss";
+
+.container {
+  width: 90%;
+  background: $brand-blue;
+  margin: 3em 0;
+  padding: 2em 1em;
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+
+    .row {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      margin: 1em 0;
+
+      input {
+        background: $brand-blue;
+        color: $white;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $white;
+
+        &:focus {
+          color: $white;
+        }
+
+        &::placeholder {
+          color: $gray-light;
+        }
+      }
+    }
+
+    .rowIcon {
+      display: flex;
+      margin-top: 1em;
+      button {
+        background: transparent;
+        outline: none;
+        padding: 0.5em;
+        margin: 0;
+        border: none;
+      }
+    }
+
+    .submitButton {
+      margin-top: 1em;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+      background: $white;
+      color: $brand-blue;
+      padding: 0.6em 2em;
+      font-weight: 600;
+      font-size: 1.2em;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: 30%;
+
+    .formContainer {
+      justify-content: center;
+
+      .row {
+        justify-content: center;
+
+        input {
+          margin-left: 1em;
+          width: 60%;
+        }
+      }
+    }
+  }
+}
