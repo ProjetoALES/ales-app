@@ -1,5 +1,5 @@
 import React from "react";
-import Landing from "../../components/Landing/Landing";
+import Landing from "./Sections/Landing/Landing";
 import WhatIs from "./Sections/WhatIs/WhatIs";
 import WhatDo from "./Sections/WhatDo/WhatDo";
 import AboutUs from "./Sections/AboutUs/AboutUs";
