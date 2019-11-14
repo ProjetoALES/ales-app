@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./GetThere.module.scss";
 import GetThereSection from "./Sections/GetThereSection/GetThereSection";
 import SearchRouteSection from "./Sections/SearchRouteSection/SearchRouteSection";
+import RouteSection from "./Sections/RoutesSection/RoutesSection";
 
 const GetThere = () => (
   <div className={styles.container}>
@@ -18,6 +19,7 @@ const GetThere = () => (
     </div>
     <GetThereSection />
     <SearchRouteSection />
+    <RouteSection />
   </div>
 );
 
