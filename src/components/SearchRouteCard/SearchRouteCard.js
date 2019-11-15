@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./SearchRouteCard.module.scss";
-import CircleIcon from "../../assets/icons/circle.svg";
-import SwitchIcon from "../../assets/icons/switch.svg";
-import LocationIcon from "../../assets/icons/location.svg";
+import CircleIcon from "assets/icons/circle.svg";
+import SwitchIcon from "assets/icons/switch.svg";
+import LocationIcon from "assets/icons/location.svg";
 
 const RouteCard = () => (
   <div className={styles.container}>

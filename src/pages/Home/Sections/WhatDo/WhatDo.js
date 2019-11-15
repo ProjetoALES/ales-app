@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./WhatDo.module.scss";
 
-import Badge from "../../../../components/Badge/Badge";
-import LanguageIcon from "../../../../assets/icons/language.svg";
+import Badge from "components/Badge/Badge";
+import LanguageIcon from "assets/icons/language.svg";
 
 const WhatDo = () => (
   <div className={styles.section}>

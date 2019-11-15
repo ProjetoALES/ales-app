@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./RouteCard.module.scss";
-import CarIcon from "../../assets/icons/car.svg";
+import CarIcon from "assets/icons/car.svg";
 
 const RouteCard = () => (
   <div className={styles.container}>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchRouteSection.module.scss";
-import SearchRouteCard from "../../../../components/SearchRouteCard/SearchRouteCard";
+import SearchRouteCard from "components/SearchRouteCard/SearchRouteCard";
 
 const SearchRouteSection = () => (
   <div className={styles.container}>

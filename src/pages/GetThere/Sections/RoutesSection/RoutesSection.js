@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./RoutesSection.module.scss";
-import RouteCard from "../../../../components/RouteCard/RouteCard";
+import RouteCard from "components/RouteCard/RouteCard";
 
 const RoutesSection = () => (
   <div className={styles.container}>

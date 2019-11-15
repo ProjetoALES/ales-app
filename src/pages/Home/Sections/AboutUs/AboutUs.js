@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AboutUs.module.scss";
-import UnicampLogo from "../../../../assets/images/unicamp.svg";
-import ProecLogo from "../../../../assets/images/proec.svg";
+import UnicampLogo from "assets/images/unicamp.svg";
+import ProecLogo from "assets/images/proec.svg";
 
 const AboutUs = () => (
   <div className={styles.section}>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LoginCard.module.scss";
-import Alessauro from "../../assets/images/alessauro.png";
+import Alessauro from "assets/images/alessauro.png";
 import { Form, Button } from "react-bootstrap";
 
 const LoginCard = () => (

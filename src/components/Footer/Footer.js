@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import FacebookIcon from "../../assets/icons/facebook.svg";
-import InstagramIcon from "../../assets/icons/instagram.svg";
-import GitHubIcon from "../../assets/icons/github.svg";
+import FacebookIcon from "assets/icons/facebook.svg";
+import InstagramIcon from "assets/icons/instagram.svg";
+import GitHubIcon from "assets/icons/github.svg";
 
 const Footer = () => (
   <div className={styles.container}>
