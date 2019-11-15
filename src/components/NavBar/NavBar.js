@@ -12,7 +12,7 @@ const NavBar = () => (
     bg="light"
     className="fixed-top"
   >
-    <Navbar.Brand href="/#home">
+    <Navbar.Brand href="/">
       <img
         alt="logo"
         src={Logo}
@@ -27,7 +27,7 @@ const NavBar = () => (
         <Nav.Link href="/get-there" className={styles.navLink}>
           Como Chegar
         </Nav.Link>
-        <Nav.Link href="#" className={styles.navLink}>
+        <Nav.Link href="/#contact" className={styles.navLink}>
           Contato
         </Nav.Link>
         <Nav.Link href="#" className={styles.navLink}>

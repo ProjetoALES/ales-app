@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Contact.module.scss";
 import { Form, Button } from "react-bootstrap";
+import styles from "./Contact.module.scss";
 
-const Contact = () => (
-  <div className={styles.section}>
+const Contact = ({ id }) => (
+  <div id={id} className={styles.section}>
     <div className={styles.sectionTitle}>
       <h3>Contato</h3>
     </div>
