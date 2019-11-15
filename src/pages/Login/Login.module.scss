@@ -1,13 +1,26 @@
+@import "styles/colors.module.scss";
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 65em;
+  margin: 0;
+  padding: 6em 0;
+  background: $brand-blue;
+  background-image: linear-gradient(
+      rgba($brand-yellow, 0.9),
+      rgba($brand-yellow, 0.9)
+    ),
+    url("../../assets/images/ales-landing-background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (min-width: 900px) {
   .container {
-    height: 60em;
+    padding: 10em 0;
   }
 }

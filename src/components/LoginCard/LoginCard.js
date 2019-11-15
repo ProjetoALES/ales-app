@@ -10,20 +10,7 @@ const LoginCard = () => (
     </div>
     <form className={styles.formContainer}>
       <div className={styles.formGroup}>
-        <label>
-          <input type="radio" name="InputRadio" value="Email" checked />
-          Email
-        </label>
-        <label>
-          <input type="radio" name="InputRadio" value="Telefone" />
-          Telefone
-        </label>
-      </div>
-      <div className={styles.formGroup}>
         <Form.Control type="email" placeholder="Email" />
-      </div>
-      <div className={styles.formGroup}>
-        <Form.Control type="text" placeholder="Telefone" />
       </div>
       <div className={styles.formGroup}>
         <Form.Control type="password" placeholder="Senha" />

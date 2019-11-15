@@ -5,10 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3em 1em;
+  padding: 6em 1em;
   width: 90%;
   border-radius: 8px;
-  background: rgba($gray-lighter, 0.8);
+  background: rgba($color: $gray-lighter, $alpha: 1);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 
   .formContainer {
@@ -42,7 +42,8 @@
 
     button {
       margin: 2em 0;
-      padding: 0.5em 2em;
+      padding: 0.5em 4em;
+      font-weight: 500;
     }
 
     a {
