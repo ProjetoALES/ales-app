@@ -30,7 +30,7 @@ const NavBar = () => (
         <Nav.Link href="/#contact" className={styles.navLink}>
           Contato
         </Nav.Link>
-        <Nav.Link href="#" className={styles.navLink}>
+        <Nav.Link href="/simulate-courses" className={styles.navLink}>
           Matérias
         </Nav.Link>
         <div className={styles.buttonsContainer}>

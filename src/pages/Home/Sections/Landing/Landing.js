@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import styles from "./Landing.module.scss";
 
 const Landing = () => (
@@ -11,12 +12,16 @@ const Landing = () => (
           Aulas extracurriculares aos finais de semana!
         </h3>
         <h3 className={styles.subTitle}>e de graça \o/</h3>
-        <Button size="lg" variant="warning">
-          <span>Nossas Matérias!</span>
-        </Button>
-        <Button size="lg" variant="outline-warning">
-          Contato
-        </Button>
+        <Link to="/simulate-courses">
+          <Button size="lg" variant="warning">
+            <span>Nossas Matérias!</span>
+          </Button>
+        </Link>
+        <Link to="/#contact">
+          <Button size="lg" variant="outline-warning">
+            Contato
+          </Button>
+        </Link>
       </div>
     </Container>
   </div>
