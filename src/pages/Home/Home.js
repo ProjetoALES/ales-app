@@ -1,9 +1,9 @@
 import React from "react";
+import GetThereSection from "pages/Sections/GetThere/GetThereSection";
 import Landing from "./Sections/Landing/Landing";
 import WhatIs from "./Sections/WhatIs/WhatIs";
 import WhatDo from "./Sections/WhatDo/WhatDo";
 import AboutUs from "./Sections/AboutUs/AboutUs";
-import GetThere from "./Sections/GetThere/GetThere";
 import Contact from "./Sections/Contact/Contact";
 
 const Home = () => (
@@ -12,7 +12,7 @@ const Home = () => (
     <WhatIs />
     <WhatDo />
     <AboutUs />
-    <GetThere />
+    <GetThereSection />
     <Contact id="contact" />
   </div>
 );
