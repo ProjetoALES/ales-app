@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em 1em;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    padding: 3em 20em;
+  }
+}
