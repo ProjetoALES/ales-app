@@ -6,7 +6,7 @@ const RouteCard = () => (
   <div className={styles.container}>
     <div className={styles.row}>
       <div className={styles.rowTitle}>
-        <img src={CarIcon} height="20" width="20" />
+        <img src={CarIcon} height="20" width="20" alt="transport-icon" />
         <h6>Via Dr. Shigeo Mori</h6>
       </div>
       <div className={styles.infoContainer}>
