@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SimulateCoursesHeader from "./Sections/SimulateCoursesHeader/SimulateCoursesHeader";
-import SimulateCoursesSection from "./Sections/SimulateCoursesSection/SimulateCoursesSection";
 import CoursesSection from "./Sections/CoursesSection/CoursesSection";
 
 const SimulateCourses = () => {
@@ -12,7 +11,11 @@ const SimulateCourses = () => {
       description:
         "Quer aprender a fazer mangás? ou desenhos realistas? Venha nas aulas e se torne um artista nato",
       nextClass: "Amanhã",
-      schedule: ["9:00", "10:30"]
+      schedule: {
+        day: "Sábado",
+        start: "9:00",
+        end: "10:30"
+      }
     },
     {
       id: "2",
@@ -20,7 +23,11 @@ const SimulateCourses = () => {
       frequency: "Semanalmente aos domingos",
       description: "Venha aprender a desenvolver jogos e sites com a gente!",
       nextClass: "Depois de amanhã",
-      schedule: ["14:00", "15:30"]
+      schedule: {
+        day: "Domingo",
+        start: "14:00",
+        end: "15:30"
+      }
     },
     {
       id: "3",
@@ -28,7 +35,11 @@ const SimulateCourses = () => {
       frequency: "Semanalmente aos domingos",
       description: "Aprenda a fazer robozinhos com os mais diversos sensores!",
       nextClass: "Depois de amanhã",
-      schedule: ["15:30", "17:00"]
+      schedule: {
+        day: "Domingo",
+        start: "15:30",
+        end: "17:00"
+      }
     }
   ];
 
@@ -52,7 +63,6 @@ const SimulateCourses = () => {
   return (
     <div>
       <SimulateCoursesHeader />
-      <SimulateCoursesSection />
       <CoursesSection onChange={onCourseToggle} courses={coursesFromAPI} />
     </div>
   );
