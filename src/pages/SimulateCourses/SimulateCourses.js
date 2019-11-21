@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SimulateCoursesHeader from "./Sections/SimulateCoursesHeader/SimulateCoursesHeader";
 import CoursesSection from "./Sections/CoursesSection/CoursesSection";
+import SimulateCoursesSection from "./Sections/SimulateCoursesSection/SimulateCoursesSection";
 
 const SimulateCourses = () => {
   const coursesFromAPI = [
@@ -43,17 +44,17 @@ const SimulateCourses = () => {
     }
   ];
 
-  const [courses, setCourses] = useState([]);
+  const [coursesSelected, setCoursesSelected] = useState([]);
 
   const onCourseToggle = course => {
-    const index = courses.findIndex(courseInState => {
+    const index = coursesSelected.findIndex(courseInState => {
       return courseInState.id === course.id;
     });
     if (index === -1) {
-      setCourses([...courses, course]);
+      setCoursesSelected([...coursesSelected, course]);
     } else {
-      setCourses(
-        courses.filter(courseInState => {
+      setCoursesSelected(
+        coursesSelected.filter(courseInState => {
           return courseInState.id !== course.id;
         })
       );
@@ -63,6 +64,7 @@ const SimulateCourses = () => {
   return (
     <div>
       <SimulateCoursesHeader />
+      <SimulateCoursesSection courses={coursesSelected} />
       <CoursesSection onChange={onCourseToggle} courses={coursesFromAPI} />
     </div>
   );
