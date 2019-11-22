@@ -1,5 +1,26 @@
 .container {
   padding: 3em 0;
   margin: auto;
-  width: 80%;
+  width: 90%;
+
+  td,
+  th {
+    border-style: none;
+    height: 1em;
+  }
+
+  th {
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  td {
+    background: transparent !important;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: 50%;
+  }
 }
