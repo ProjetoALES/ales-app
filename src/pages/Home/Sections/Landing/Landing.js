@@ -17,11 +17,11 @@ const Landing = () => (
             <span>Nossas Matérias!</span>
           </Button>
         </Link>
-        <Link to="/#contact">
+        <a href="/#contact">
           <Button size="lg" variant="outline-warning">
             Contato
           </Button>
-        </Link>
+        </a>
       </div>
     </Container>
   </div>
