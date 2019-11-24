@@ -10,13 +10,13 @@ const Footer = () => (
       <a href="/#">Projeto ALES</a>
     </h5>
     <div className={styles.iconContainer}>
-      <a href="/#">
+      <a href="https://www.facebook.com/projetoales/" target="_blank">
         <img src={FacebookIcon} alt="facebook icon" width="30" height="30" />
       </a>
-      <a href="/#">
+      <a href="https://www.instagram.com/projetoales/" target="_blank">
         <img src={InstagramIcon} alt="instagram icon" width="30" height="30" />
       </a>
-      <a href="/#">
+      <a href="https://github.com/ProjetoALES" target="_blank">
         <img src={GitHubIcon} alt="github icon" width="30" height="30" />
       </a>
     </div>
