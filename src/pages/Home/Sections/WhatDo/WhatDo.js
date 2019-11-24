@@ -20,7 +20,7 @@ const WhatDo = () => (
           <Badge icon={LanguageIcon} text="Francês" />
         </div>
         <div className={styles.subSectionTitle}>
-          <a href="/#">
+          <a href="/simulate-courses">
             <h5>e muito mais!</h5>
           </a>
         </div>
