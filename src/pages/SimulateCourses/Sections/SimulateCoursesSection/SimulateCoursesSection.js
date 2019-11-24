@@ -8,11 +8,11 @@ const SimulateCoursesSection = () => (
   <div className={styles.container}>
     <Calendar
       locale={ptBrLocale}
+      timeZone="America/Sao_Paulo"
       defaultView="timeGridTwoDays"
+      defaultDate="2000-01-01"
       contentHeight="auto"
       allDaySlot={false}
-      slotDuration="00:30:00"
-      scrollTime="2:00:00"
       slotLabelFormat={{
         hour: "numeric",
         minute: "2-digit",
@@ -37,8 +37,24 @@ const SimulateCoursesSection = () => (
         center: "",
         right: ""
       }}
-      minTime="9:00"
-      maxTime="17:00"
+      minTime="9:00:00"
+      maxTime="17:00:00"
+      events={[
+        {
+          id: "1",
+          title: "Monitoria",
+          start: "2000-01-01 12:00:00",
+          end: "2000-01-01 14:00:00",
+          color: "yellow"
+        },
+        {
+          id: "2",
+          title: "Monitoria 2",
+          start: "2000-01-02 00:00",
+          end: "2000-01-02 12:00",
+          color: "red"
+        }
+      ]}
     />
   </div>
 );
