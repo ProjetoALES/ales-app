@@ -1,62 +1,67 @@
 import React from "react";
-import Calendar from "@fullcalendar/react";
+import FullCalendar from "@fullcalendar/react";
 import timeGrid from "@fullcalendar/timegrid";
 import ptBrLocale from "@fullcalendar/core/locales/pt-br";
+import momentTimezonePlugin from "@fullcalendar/moment-timezone";
+import moment from "moment-timezone";
 import styles from "./SimulateCoursesSection.module.scss";
 
-const SimulateCoursesSection = () => (
-  <div className={styles.container}>
-    <Calendar
-      locale={ptBrLocale}
-      timeZone="America/Sao_Paulo"
-      defaultView="timeGridTwoDays"
-      defaultDate="2000-01-01"
-      contentHeight="auto"
-      allDaySlot={false}
-      slotLabelFormat={{
-        hour: "numeric",
-        minute: "2-digit",
-        omitZeroMinute: false
-      }}
-      validRange={{
-        start: "2000-01-01",
-        end: "2000-01-02"
-      }}
-      columnHeaderFormat={{
-        weekday: "long"
-      }}
-      views={{
-        timeGridTwoDays: {
-          type: "timeGrid",
-          duration: { days: 2 }
-        }
-      }}
-      plugins={[timeGrid]}
-      header={{
-        left: "",
-        center: "",
-        right: ""
-      }}
-      minTime="9:00:00"
-      maxTime="17:00:00"
-      events={[
-        {
-          id: "1",
-          title: "Monitoria",
-          start: "2000-01-01 12:00:00",
-          end: "2000-01-01 14:00:00",
-          color: "yellow"
-        },
-        {
-          id: "2",
-          title: "Monitoria 2",
-          start: "2000-01-02 00:00",
-          end: "2000-01-02 12:00",
-          color: "red"
-        }
-      ]}
-    />
-  </div>
-);
+const SimulateCoursesSection = ({ courses }) => {
+  const simulateCourses = () => {
+    courses.map((course, index) => {
+      return {
+        id: index,
+        title: course.name,
+        start: moment
+          .tz(`2000-01-01 ${course.schedule.start}, America/Sao_Paulo`)
+          .format(),
+        end: moment
+          .tz(`2000-01-01 ${course.schedule.end}, America/Sao_Paulo`)
+          .format(),
+        color: "pink"
+      };
+    });
+  };
+
+  return (
+    <div className={styles.container}>
+      <FullCalendar
+        locale={ptBrLocale}
+        timeZone="America/Sao_Paulo"
+        defaultView="timeGridTwoDays"
+        defaultDate={moment.tz("2000-01-01", "America/Sao_Paulo")}
+        contentHeight="auto"
+        allDaySlot={false}
+        slotLabelFormat={{
+          hour: "numeric",
+          minute: "2-digit",
+          omitZeroMinute: false
+        }}
+        validRange={{
+          start: moment.tz("2000-01-01 09:00", "America/Sao_Paulo").format(),
+          end: moment.tz("2000-01-02 17:00", "America/Sao_Paulo").format()
+        }}
+        columnHeaderFormat={{
+          weekday: "long"
+        }}
+        views={{
+          timeGridTwoDays: {
+            type: "timeGrid",
+            duration: { days: 2 }
+          }
+        }}
+        plugins={[timeGrid, momentTimezonePlugin]}
+        header={{
+          left: "",
+          center: "",
+          right: ""
+        }}
+        minTime="09:00"
+        maxTime="17:00"
+        events={simulateCourses}
+      />
+    </div>
+  );
+};
 
 export default SimulateCoursesSection;
