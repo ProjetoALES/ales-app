@@ -6,6 +6,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import GetThere from "./pages/GetThere/GetThere";
 import ResetPasswordRequested from "./pages/ResetPasswordRequested/ResetPasswordRequested";
 import NewPassword from "./pages/NewPassword/NewPassword";
+import NewPasswordSet from "./pages/NewPasswordSet/NewPasswordSet";
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
         component={ResetPasswordRequested}
       />
       <Route path="/new-password" exact component={NewPassword} />
+      <Route path="/new-password-set" exact component={NewPasswordSet} />
     </Switch>
   );
 };
