@@ -1,0 +1,83 @@
+@import "styles/colors.module.scss";
+
+.linkContainer {
+  text-decoration: none !important;
+  width: 20%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    margin: 2em 0;
+    padding: 2em;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+
+    .titleContainer {
+      font-weight: 500;
+      font-size: 1.3em;
+
+      span {
+        margin-right: 1em;
+      }
+    }
+  }
+
+  .blue {
+    border: 1.5px solid $brand-blue;
+    color: $brand-blue;
+    &:hover {
+      background: lighten($brand-blue, 40%);
+    }
+  }
+
+  .green {
+    border: 1.5px solid $green;
+    color: $green;
+    &:hover {
+      background: lighten($green, 40%);
+    }
+  }
+
+  .red {
+    border: 1.5px solid $red;
+    color: $red;
+    &:hover {
+      background: lighten($red, 30%);
+    }
+  }
+
+  .yellow {
+    border: 1.5px solid $brand-yellow;
+    color: $brand-yellow;
+    &:hover {
+      background: lighten($brand-yellow, 30%);
+    }
+  }
+
+  .purple {
+    border: 1.5px solid $purple;
+    color: $purple;
+    &:hover {
+      background: lighten($purple, 30%);
+    }
+  }
+
+  .orange {
+    border: 1.5px solid $orange;
+    color: $orange;
+    &:hover {
+      background: lighten($orange, 30%);
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .linkContainer {
+    margin: 2em 4em;
+    .container {
+      width: 100%;
+    }
+  }
+}
