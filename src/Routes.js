@@ -7,6 +7,7 @@ import GetThere from "./pages/GetThere/GetThere";
 import ResetPasswordRequested from "./pages/ResetPasswordRequested/ResetPasswordRequested";
 import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordSet from "./pages/NewPasswordSet/NewPasswordSet";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const Routes = () => {
   return (
@@ -22,6 +23,7 @@ const Routes = () => {
       />
       <Route path="/new-password" exact component={NewPassword} />
       <Route path="/new-password-set" exact component={NewPasswordSet} />
+      <Route path="/dashboard" exact component={Dashboard} />
     </Switch>
   );
 };
