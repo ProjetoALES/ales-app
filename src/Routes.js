@@ -23,7 +23,7 @@ const Routes = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
-      <PrivateRoute path="/reset-password" exact component={ResetPassword} />
+      <Route path="/reset-password" exact component={ResetPassword} />
       <Route path="/get-there" exact component={GetThere} />
       <PrivateRoute
         path="/reset-password-requested"
