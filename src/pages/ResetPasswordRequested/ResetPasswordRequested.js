@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import styles from "./ResetPasswordRequested.module.scss";
 
 const ResetPasswordRequested = () => (
@@ -18,9 +16,6 @@ const ResetPasswordRequested = () => (
         certifique-se que o email foi digitado corretamente na tela anterior
       </p>
     </div>
-    <Link to="/reset-password">
-      <Button variant="primary">Voltar</Button>
-    </Link>
   </div>
 );
 
