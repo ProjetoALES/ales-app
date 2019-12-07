@@ -25,7 +25,7 @@ const Routes = () => {
       <Route path="/login" exact component={Login} />
       <Route path="/reset-password" exact component={ResetPassword} />
       <Route path="/get-there" exact component={GetThere} />
-      <PrivateRoute
+      <Route
         path="/reset-password-requested"
         exact
         component={ResetPasswordRequested}
