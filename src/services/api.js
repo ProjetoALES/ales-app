@@ -27,7 +27,7 @@ api.interceptors.response.use(
     /* expired token */
     if (error.response.code === "token_not_valid") {
       api
-        .post("/token/refresh/", { refresh: getRefreshToken() })
+        .post("/auth/jwt/refresh/", { refresh: getRefreshToken() })
         .then(token => {
           setNewToken(token);
         })

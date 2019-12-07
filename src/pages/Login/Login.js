@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Alessauro from "assets/images/alessauro.png";
 import { Form, Button } from "react-bootstrap";
-import styles from "./Login.module.scss";
 import api from "services/api";
 import { login } from "services/auth";
+import styles from "./Login.module.scss";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ const Login = ({ history }) => {
       return;
     }
     try {
-      const response = await api.post("/token/", { email, password });
+      const response = await api.post("/auth/jwt/create/", { email, password });
       login(response.data.access, response.data.refresh);
       history.push("/dashboard");
     } catch (err) {
