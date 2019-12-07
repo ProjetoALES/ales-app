@@ -15,8 +15,7 @@ export const login = (token, refresh) => {
   localStorage.setItem(REFRESH_TOKEN_KEY, refresh);
 };
 
-export const logout = ({ history }) => {
+export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(REFRESH_TOKEN_KEY);
-  history.push("/");
 };

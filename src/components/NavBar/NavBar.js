@@ -1,13 +1,14 @@
 import React from "react";
 import { logout } from "services/auth";
-import styles from "./NavBar.module.scss";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Logo from "assets/images/logo-ales.svg";
+import styles from "./NavBar.module.scss";
 
-const NavBar = () => {
+const NavBar = ({ history }) => {
   const logoutUser = () => {
     logout();
+    history.push("/");
   };
 
   return (
@@ -60,4 +61,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
