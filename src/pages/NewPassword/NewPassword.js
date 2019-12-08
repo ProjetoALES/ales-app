@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Spinner } from "react-bootstrap";
 import api from "services/api";
+import { notify } from "helpers";
 import styles from "./NewPassword.module.scss";
 
 const NewPassword = ({ history, match }) => {
@@ -16,12 +17,12 @@ const NewPassword = ({ history, match }) => {
 
     if (!newPassword || !reNewPassword) {
       setIsLoading(false);
-      alert("Preencha corretamente os campos!");
+      notify("Ops! Parece que você esqueceu de preencher algum campo", "error");
       return;
     }
     if (newPassword !== reNewPassword) {
       setIsLoading(false);
-      alert("As senhas digitadas estão diferentes");
+      notify("Eita! As senhas digitadas estão diferentes", "error");
       return;
     }
     try {
@@ -33,9 +34,10 @@ const NewPassword = ({ history, match }) => {
       });
       setIsLoading(false);
       history.push("/new-password-set");
+      notify(`Senha alterada com sucesso!`, "success");
     } catch (err) {
       setIsLoading(false);
-      alert(err.message);
+      notify("Ops! Aconteceu algum erro", "error");
     }
   };
 

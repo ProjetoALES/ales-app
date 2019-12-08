@@ -3,11 +3,14 @@ import { logout } from "services/auth";
 import { withRouter } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Logo from "assets/images/logo-ales.svg";
+import { notify } from "helpers";
 import styles from "./NavBar.module.scss";
 
 const NavBar = ({ history }) => {
-  const logoutUser = () => {
+  const logoutUser = e => {
+    e.preventDefault();
     logout();
+    notify("Vai abandonar a gente? :(", "info");
     history.push("/");
   };
 

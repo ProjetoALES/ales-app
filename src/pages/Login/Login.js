@@ -4,6 +4,7 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "services/api";
 import { login } from "services/auth";
+import { notify } from "helpers";
 import styles from "./Login.module.scss";
 
 const Login = ({ history }) => {
@@ -15,7 +16,7 @@ const Login = ({ history }) => {
     setIsLoading(true);
     e.preventDefault();
     if (!email || !password) {
-      alert("Preencha corretamente os campos!");
+      notify("Ops! Parece que você esqueceu de preencher algum campo", "error");
       setIsLoading(false);
       return;
     }
@@ -24,9 +25,10 @@ const Login = ({ history }) => {
       login(response.data.access, response.data.refresh);
       setIsLoading(false);
       history.push("/dashboard");
+      notify("Login feito com sucesso!", "success");
     } catch (err) {
       setIsLoading(false);
-      alert(err.message);
+      notify("Ops! Login inválido", "error");
     }
   };
 

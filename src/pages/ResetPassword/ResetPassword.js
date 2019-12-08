@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Spinner } from "react-bootstrap";
 import api from "services/api";
+import { notify } from "helpers";
 import styles from "./ResetPassword.module.scss";
 
 const ResetPassword = ({ history }) => {
@@ -11,7 +12,7 @@ const ResetPassword = ({ history }) => {
     setIsLoading(true);
     e.preventDefault();
     if (!email) {
-      alert("Preencha corretamente os campos!");
+      notify("Ops! Parece que você esqueceu de preencher algum campo", "error");
       setIsLoading(false);
       return;
     }
@@ -19,9 +20,10 @@ const ResetPassword = ({ history }) => {
       await api.post("/auth/users/reset_password/", { email });
       setIsLoading(false);
       history.push("/reset-password-requested");
+      notify("Mandamos um email pra você :)", "success");
     } catch (err) {
       setIsLoading(false);
-      alert(err.message);
+      notify("Ops! Aconteceu algum erro", "error");
     }
   };
 
