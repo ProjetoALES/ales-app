@@ -1,6 +1,6 @@
 import React from "react";
 import { logout } from "services/auth";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Logo from "assets/images/logo-ales.svg";
 import styles from "./NavBar.module.scss";
@@ -41,19 +41,21 @@ const NavBar = ({ history }) => {
             Matérias
           </Nav.Link>
           <div className={styles.buttonsContainer}>
-            <Link to="/login">
+            <Nav.Link href="/login">
               <Button size="lg" variant="success">
                 Entrar
               </Button>
-            </Link>
-            <Button size="lg" variant="primary">
-              Minha Área
-            </Button>
-            <Link to="/">
+            </Nav.Link>
+            <Nav.Link href="/dashboard">
+              <Button size="lg" variant="primary">
+                Minha Área
+              </Button>
+            </Nav.Link>
+            <Nav.Link href="/">
               <Button size="md" variant="outline-danger" onClick={logoutUser}>
                 Sair
               </Button>
-            </Link>
+            </Nav.Link>
           </div>
         </Nav>
       </Navbar.Collapse>
