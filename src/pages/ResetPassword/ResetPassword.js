@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import api from "services/api";
 import styles from "./ResetPassword.module.scss";
 
 const ResetPassword = ({ history }) => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const submitNewPassword = async e => {
+    setIsLoading(true);
     e.preventDefault();
     if (!email) {
       alert("Preencha corretamente os campos!");
+      setIsLoading(false);
       return;
     }
     try {
       await api.post("/auth/users/reset_password/", { email });
+      setIsLoading(false);
       history.push("/reset-password-requested");
     } catch (err) {
+      setIsLoading(false);
       alert(err.message);
     }
   };
@@ -39,9 +44,20 @@ const ResetPassword = ({ history }) => {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <Button variant="warning" type="submit" size="lg">
-          Recuperar senha
-        </Button>
+        {isLoading ? (
+          <Spinner
+            as="div"
+            animation="border"
+            size="md"
+            role="status"
+            aria-hidden="true"
+            variant="warning"
+          />
+        ) : (
+          <Button variant="warning" type="submit" size="lg">
+            Recuperar senha
+          </Button>
+        )}
       </form>
     </div>
   );

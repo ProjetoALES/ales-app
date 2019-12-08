@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import api from "services/api";
 import styles from "./NewPassword.module.scss";
 
 const NewPassword = ({ history, match }) => {
   const [newPassword, setNewPassword] = useState("");
   const [reNewPassword, setReNewPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const submitNewPassword = async e => {
+    setIsLoading(true);
     e.preventDefault();
     const uid = match.params.uid;
     const token = match.params.token;
 
     if (!newPassword || !reNewPassword) {
+      setIsLoading(false);
       alert("Preencha corretamente os campos!");
       return;
     }
     if (newPassword !== reNewPassword) {
+      setIsLoading(false);
       alert("As senhas digitadas estão diferentes");
       return;
     }
@@ -27,8 +31,10 @@ const NewPassword = ({ history, match }) => {
         new_password: newPassword,
         re_new_password: reNewPassword
       });
+      setIsLoading(false);
       history.push("/new-password-set");
     } catch (err) {
+      setIsLoading(false);
       alert(err.message);
     }
   };
@@ -56,9 +62,20 @@ const NewPassword = ({ history, match }) => {
             onChange={e => setReNewPassword(e.target.value)}
           />
         </div>
-        <Button variant="warning" type="submit" size="lg">
-          Redefinir Senha
-        </Button>
+        {isLoading ? (
+          <Spinner
+            as="div"
+            animation="border"
+            size="md"
+            role="status"
+            aria-hidden="true"
+            variant="warning"
+          />
+        ) : (
+          <Button variant="warning" type="submit" size="lg">
+            Recuperar senha
+          </Button>
+        )}
       </form>
     </div>
   );
