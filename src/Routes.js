@@ -30,8 +30,8 @@ const Routes = () => {
         exact
         component={ResetPasswordRequested}
       />
-      <PrivateRoute path="/new-password" exact component={NewPassword} />
-      <PrivateRoute path="/new-password-set" exact component={NewPasswordSet} />
+      <Route path="/new-password/:uid/:token" exact component={NewPassword} />
+      <Route path="/new-password-set" exact component={NewPasswordSet} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
     </Switch>
   );
