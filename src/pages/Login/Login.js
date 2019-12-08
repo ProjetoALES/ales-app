@@ -32,46 +32,44 @@ const Login = ({ history }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.cardContainer}>
-        <div>
-          <img src={Alessauro} width="110" height="120" alt="ales-mascote" />
-        </div>
-        <form className={styles.formContainer} onSubmit={submitLogin}>
-          <div className={styles.formGroup}>
-            <Form.Control
-              type="email"
-              placeholder="Email"
-              onChange={e => {
-                setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <Form.Control
-              type="password"
-              placeholder="Senha"
-              onChange={e => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          {isLoading ? (
-            <Spinner
-              as="div"
-              animation="border"
-              size="md"
-              role="status"
-              aria-hidden="true"
-              variant="success"
-            />
-          ) : (
-            <Button variant="success" type="submit" size="lg">
-              Entrar
-            </Button>
-          )}
-          {isLoading ? "" : <Link to="/reset-password">Esqueci a senha</Link>}
-        </form>
+      <div>
+        <img src={Alessauro} width="110" height="120" alt="ales-mascote" />
       </div>
+      <form className={styles.formContainer} onSubmit={submitLogin}>
+        <div className={styles.formGroup}>
+          <Form.Control
+            type="email"
+            placeholder="Email"
+            onChange={e => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <Form.Control
+            type="password"
+            placeholder="Senha"
+            onChange={e => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        {isLoading ? (
+          <Spinner
+            as="div"
+            animation="border"
+            size="md"
+            role="status"
+            aria-hidden="true"
+            variant="success"
+          />
+        ) : (
+          <Button variant="success" type="submit" size="lg">
+            Entrar
+          </Button>
+        )}
+        {isLoading ? "" : <Link to="/reset-password">Esqueci a senha</Link>}
+      </form>
     </div>
   );
 };
