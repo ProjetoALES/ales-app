@@ -10,20 +10,20 @@
   }
 
   .buttonsContainer {
-    width: 50%;
     right: 0em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 60%;
 
     a {
       margin: 0.5em 0;
-      width: 100%;
       text-align: center;
+      width: 100%;
       button {
-        width: 100%;
         font-weight: 500;
+        width: 100%;
       }
     }
   }
@@ -45,8 +45,13 @@
       position: absolute;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      justify-content: flex-end;
       width: 30%;
+
+      a {
+        width: auto;
+        padding: 0 0;
+      }
     }
   }
 }
