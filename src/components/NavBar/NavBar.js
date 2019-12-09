@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Logo from "assets/images/logo-ales.svg";
 import { notify } from "helpers";
+import { isAuthenticated } from "services/auth";
 import styles from "./NavBar.module.scss";
 
 const NavBar = ({ history }) => {
@@ -13,6 +14,29 @@ const NavBar = ({ history }) => {
     notify("Vai abandonar a gente? :(", "info");
     history.push("/");
   };
+
+  const buttons = isAuthenticated() ? (
+    <div className={styles.buttonsContainer}>
+      <Nav.Link href="/dashboard">
+        <Button size="lg" variant="primary">
+          Minha Área
+        </Button>
+      </Nav.Link>
+      <Nav.Link href="/">
+        <Button size="md" variant="outline-danger" onClick={logoutUser}>
+          Sair
+        </Button>
+      </Nav.Link>
+    </div>
+  ) : (
+    <div className={styles.buttonsContainer}>
+      <Nav.Link href="/login">
+        <Button size="lg" variant="success">
+          Entrar
+        </Button>
+      </Nav.Link>
+    </div>
+  );
 
   return (
     <Navbar
@@ -43,23 +67,7 @@ const NavBar = ({ history }) => {
           <Nav.Link href="#" className={styles.navLink}>
             Matérias
           </Nav.Link>
-          <div className={styles.buttonsContainer}>
-            <Nav.Link href="/login">
-              <Button size="lg" variant="success">
-                Entrar
-              </Button>
-            </Nav.Link>
-            <Nav.Link href="/dashboard">
-              <Button size="lg" variant="primary">
-                Minha Área
-              </Button>
-            </Nav.Link>
-            <Nav.Link href="/">
-              <Button size="md" variant="outline-danger" onClick={logoutUser}>
-                Sair
-              </Button>
-            </Nav.Link>
-          </div>
+          {buttons}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
