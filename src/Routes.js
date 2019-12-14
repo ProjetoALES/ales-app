@@ -8,6 +8,7 @@ import ResetPasswordRequested from "./pages/ResetPasswordRequested/ResetPassword
 import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordSet from "./pages/NewPasswordSet/NewPasswordSet";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Semesters from "./pages/Semesters/Semesters";
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component }) => (
@@ -33,6 +34,7 @@ const Routes = () => {
       <Route path="/new-password/:uid/:token" exact component={NewPassword} />
       <Route path="/new-password-set" exact component={NewPasswordSet} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
+      <Route path="/semesters" exact component={Semesters} />
     </Switch>
   );
 };

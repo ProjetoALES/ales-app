@@ -7,6 +7,7 @@ const Dashboard = () => (
     <h3>Dashboard</h3>
     <div className={styles.cardsContainer}>
       <DashboardCard text="Perfil" to="/" color="blue" />
+      <DashboardCard text="Semestres" to="/semesters" color="blue" />
       <DashboardCard text="Coordenadores" to="/" color="green" />
       <DashboardCard text="Professores" to="/" color="red" />
       <DashboardCard text="Matérias" to="/" color="yellow" />

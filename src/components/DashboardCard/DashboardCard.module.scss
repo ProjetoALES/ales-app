@@ -32,6 +32,14 @@
     }
   }
 
+  .blue-darker {
+    border: 1.5px solid $blue-darker;
+    color: $blue-darker;
+    &:hover {
+      background: lighten($blue-darker, 70%);
+    }
+  }
+
   .green {
     border: 1.5px solid $green;
     color: $green;
