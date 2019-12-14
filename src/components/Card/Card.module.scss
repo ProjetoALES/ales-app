@@ -1,0 +1,78 @@
+@import "styles/colors.module.scss";
+
+.linkContainer {
+  text-decoration: none !important;
+  margin: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cardContainer {
+    padding: 3em 0;
+    min-width: 140px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}
+
+.blue {
+  background: $brand-blue;
+  color: $white;
+  &:hover {
+    background: darken($brand-blue, 20%);
+  }
+}
+
+.blue-darker {
+  background: $blue-darker;
+  color: $white;
+  &:hover {
+    background: darken($blue-darker, 20%);
+  }
+}
+
+.green {
+  background: $green;
+  color: $white;
+  &:hover {
+    background: darken($green, 20%);
+  }
+}
+
+.red {
+  background: $red;
+  color: $white;
+  &:hover {
+    background: darken($red, 10%);
+  }
+}
+
+.yellow {
+  background: $brand-yellow;
+  color: $white;
+  &:hover {
+    background: darken($brand-yellow, 10%);
+  }
+}
+
+.purple {
+  background: $purple;
+  color: $white;
+  &:hover {
+    background: darken($purple, 10%);
+  }
+}
+
+.orange {
+  background: $orange;
+  color: $white;
+  &:hover {
+    background: darken($orange, 10%);
+  }
+}
