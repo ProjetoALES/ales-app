@@ -10,9 +10,11 @@ const DashboardCard = ({ text, icon, to, color }) => {
         <div className={styles.titleContainer}>
           <span>{text}</span>
         </div>
-        <div className={styles.iconContainer}>
-          <img src={icon} alt="icon" height="36" width="36" />
-        </div>
+        {icon && (
+          <div className={styles.iconContainer}>
+            <img src={icon} alt="icon" height="36" width="36" />
+          </div>
+        )}
       </div>
     </Link>
   );
