@@ -1,0 +1,32 @@
+@import "styles/colors.module.scss";
+
+.semestersContainer {
+  margin-bottom: 20em;
+  padding: 3em 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    color: $gray-dark;
+    margin-bottom: 2em;
+  }
+
+  button {
+    color: $white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0.5em 0;
+  }
+
+  .cardsContainer {
+    margin-top: 2em;
+
+    .cardsRow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
