@@ -9,7 +9,7 @@ const InputDate = ({ label, onChange, defaultValue }) => {
     <div className={styles.inputDateContainer}>
       <span>{label}</span>
       <InputMask
-        mask="99-99-9999"
+        mask="99/99/9999"
         defaultValue={defaultValue}
         onChange={onChange}
       />
