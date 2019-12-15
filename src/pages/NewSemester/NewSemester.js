@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 import InputMask from "react-input-mask";
+import InputDate from "components/InputDate/InputDate";
 import { Form, Button } from "react-bootstrap";
 import styles from "./NewSemester.module.scss";
 
 const NewSemester = ({ history }) => {
   const [name, setName] = useState("");
+  const [startDate, setStartDate] = useState(
+    new Date().toLocaleDateString("pt-br")
+  );
+  const [endDate, setEndDate] = useState("");
 
   return (
     <div className={styles.newSemesterContainer}>
@@ -21,10 +26,12 @@ const NewSemester = ({ history }) => {
           />
         </div>
         <div className={styles.inputsContainer}>
-          <span>Início</span>
-          <InputMask mask="99-99-9999" defaultValue="15-12-2019" />
-          <span>Fim</span>
-          <InputMask mask="99-99-9999" />
+          <InputDate
+            label="Início"
+            onChange={e => setStartDate(e.target.value)}
+            defaultValue={startDate}
+          />
+          <InputDate label="Fim" onChange={e => setEndDate(e.target.value)} />
         </div>
         <div className={styles.buttonsContainer}>
           <Button type="submit" variant="success">
