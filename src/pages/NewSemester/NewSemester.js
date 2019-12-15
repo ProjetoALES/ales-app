@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import InputMask from "react-input-mask";
 import { Form, Button } from "react-bootstrap";
 import styles from "./NewSemester.module.scss";
 
@@ -18,6 +19,12 @@ const NewSemester = ({ history }) => {
               setName(e.target.value);
             }}
           />
+        </div>
+        <div className={styles.inputsContainer}>
+          <span>Início</span>
+          <InputMask mask="99-99-9999" defaultValue="15-12-2019" />
+          <span>Fim</span>
+          <InputMask mask="99-99-9999" />
         </div>
         <div className={styles.buttonsContainer}>
           <Button type="submit" variant="success">
