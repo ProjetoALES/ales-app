@@ -5,7 +5,7 @@ const api = axios.create({
   baseURL: "http://localhost:8000/api/v1"
 });
 
-api.interceptors.request.use(async config => {
+api.interceptors.request.use(config => {
   const token = getToken();
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -18,6 +18,7 @@ api.interceptors.response.use(
     return response;
   },
   error => {
+    const originalRequest = error.config;
     if (error.response.status !== 401) {
       return new Promise((resolve, reject) => {
         reject(error);
@@ -25,18 +26,27 @@ api.interceptors.response.use(
     }
 
     /* expired token */
-    if (error.response.code === "token_not_valid") {
-      api
-        .post("/auth/jwt/refresh/", { refresh: getRefreshToken() })
-        .then(token => {
-          setNewToken(token);
-        })
-        .catch(err => {
-          Promise.reject(err);
-        });
-    } else {
-      logout();
+    if (
+      error.response.data.code === "token_not_valid" &&
+      !originalRequest._retry
+    ) {
+      originalRequest._retry = true;
+      return new Promise((resolve, reject) => {
+        api
+          .post("/auth/jwt/refresh/", { refresh: getRefreshToken() })
+          .then(response => {
+            const token = response.data.access;
+            setNewToken(token);
+            axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+            originalRequest.headers["Authorization"] = "Bearer " + token;
+            return resolve(axios(originalRequest));
+          })
+          .catch(err => {
+            reject(err);
+          });
+      });
     }
+    logout();
   }
 );
 
