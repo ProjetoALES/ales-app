@@ -34,7 +34,7 @@ const Routes = () => {
       <Route path="/new-password/:uid/:token" exact component={NewPassword} />
       <Route path="/new-password-set" exact component={NewPasswordSet} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
-      <Route path="/semesters" exact component={Semesters} />
+      <PrivateRoute path="/semesters" exact component={Semesters} />
     </Switch>
   );
 };
