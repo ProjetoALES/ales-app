@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import { withRouter } from "react-router-dom";
 import semestersService from "services/semestersService";
 import { notify } from "helpers";
 
@@ -7,9 +8,8 @@ import Card from "components/Card/Card";
 import { Button } from "react-bootstrap";
 import styles from "./Semesters.module.scss";
 
-const Semesters = () => {
+const Semesters = ({ history }) => {
   const [semesters, setSemesters] = useState([]);
-
   useEffect(() => {
     const fetchSemesters = async () => {
       try {
@@ -36,7 +36,9 @@ const Semesters = () => {
   return (
     <div className={styles.semestersContainer}>
       <h3>Semestres</h3>
-      <Button>Novo Semestre</Button>
+      <Button onClick={() => history.push("/new-semester")}>
+        Novo Semestre
+      </Button>
       <div className={styles.cardsContainer}>
         <div className={styles.cardsCol}>
           {semestersList()[0].map(item => {
@@ -67,4 +69,4 @@ const Semesters = () => {
   );
 };
 
-export default Semesters;
+export default withRouter(Semesters);
