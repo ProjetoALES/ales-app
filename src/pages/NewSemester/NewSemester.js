@@ -56,6 +56,7 @@ const NewSemester = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="Nome"
+            maxLength={6}
             onChange={e => {
               setName(e.target.value);
             }}
