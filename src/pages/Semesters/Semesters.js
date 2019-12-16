@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 
 import api from "services/api";
 import { notify } from "helpers";
@@ -84,4 +83,4 @@ const Semesters = ({ history }) => {
   );
 };
 
-export default withRouter(Semesters);
+export default Semesters;

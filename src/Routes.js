@@ -9,13 +9,24 @@ import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordSet from "./pages/NewPasswordSet/NewPasswordSet";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Semesters from "./pages/Semesters/Semesters";
+import SemesterDetail from "./pages/SemesterDetail/SemesterDetail";
 import NewSemester from "./pages/NewSemester/NewSemester";
 import { isAuthenticated } from "./services/auth";
 
-const PrivateRoute = ({ component: Component }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
-    render={() =>
-      isAuthenticated() ? <Component /> : <Redirect to="/login" />
+    {...rest}
+    render={props =>
+      isAuthenticated() === true ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: props.location }
+          }}
+        />
+      )
     }
   />
 );
@@ -36,7 +47,8 @@ const Routes = () => {
       <Route path="/new-password-set" exact component={NewPasswordSet} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
       <PrivateRoute path="/semesters" exact component={Semesters} />
-      <Route path="/new-semester" exact component={NewSemester} />
+      <PrivateRoute path="/semesters/:name" exact component={SemesterDetail} />
+      <PrivateRoute path="/new-semester" exact component={NewSemester} />
     </Switch>
   );
 };
