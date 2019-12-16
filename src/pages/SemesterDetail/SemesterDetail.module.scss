@@ -1,0 +1,61 @@
+@import "styles/colors.module.scss";
+
+.semesterDetailContainer {
+  display: flex;
+  flex-direction: column;
+
+  .titleContainer {
+    padding: 2em 0;
+    text-align: center;
+    color: $gray-dark;
+  }
+
+  .semesterInfoContainer {
+    padding: 1em 0;
+    text-align: center;
+    color: $gray-dark;
+
+    .infoContainer {
+      margin: 1em 0;
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .buttonsContainer {
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+    button {
+      margin: 1em;
+      font-weight: 500;
+      padding: 0.5em 2em;
+    }
+  }
+}
+
+.spinnerContainer {
+  padding: 5em 0;
+  margin-bottom: 25em;
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .semesterDetailContainer {
+    padding: 3em 0;
+    margin-bottom: 15em;
+
+    .buttonsContainer {
+      width: 30%;
+      text-align: center;
+      margin: 2em auto;
+    }
+  }
+
+  .spinnerContainer {
+    padding: 5em 0;
+    margin-bottom: 40em;
+    text-align: center;
+  }
+}
