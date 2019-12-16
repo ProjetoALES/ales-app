@@ -4,7 +4,7 @@ import api from "services/api";
 import { notify } from "helpers";
 import * as moment from "moment";
 
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Spinner, Modal } from "react-bootstrap";
 import styles from "./SemesterDetail.module.scss";
 
 const SemesterDetail = ({ match, history }) => {
@@ -14,6 +14,10 @@ const SemesterDetail = ({ match, history }) => {
     end: ""
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const closeModal = () => setModal(false);
+  const showModal = () => setModal(true);
 
   useEffect(() => {
     const fetchSemester = async () => {
@@ -34,6 +38,35 @@ const SemesterDetail = ({ match, history }) => {
     fetchSemester();
   }, []);
 
+  const deleteSemester = async () => {
+    try {
+      setIsLoading(true);
+      await api.delete(`/semesters/${semester.name}/`);
+      notify("Semestre deletado!", "success");
+      history.push("/semesters/");
+    } catch (error) {
+      notify("Ops! Houve algum erro na hora de deletar este semestre", "error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const confirmDeleteModal = (
+    <Modal show={modal} onHide={closeModal} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>{`Deletar mesmo ${semester.name}?`}</Modal.Title>
+      </Modal.Header>
+      <Modal.Footer>
+        <Button variant="danger" onClick={deleteSemester}>
+          Deletar
+        </Button>
+        <Button variant="secondary" onClick={closeModal}>
+          Cancelar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
   const spinnerContainer = (
     <div className={styles.spinnerContainer}>
       <Spinner animation="border" variant="primary" />
@@ -44,6 +77,7 @@ const SemesterDetail = ({ match, history }) => {
     spinnerContainer
   ) : (
     <div className={styles.semesterDetailContainer}>
+      {confirmDeleteModal}
       <div className={styles.titleContainer}>
         <h3>Semestre</h3>
         <h4>{semester.name}</h4>
@@ -63,7 +97,7 @@ const SemesterDetail = ({ match, history }) => {
           <Button type="button" variant="success">
             Editar
           </Button>
-          <Button type="button" variant="danger">
+          <Button type="button" variant="danger" onClick={() => showModal()}>
             Deletar
           </Button>
         </div>
