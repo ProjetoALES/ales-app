@@ -12,6 +12,8 @@ const InputDate = ({ label, onChange, defaultValue }) => {
         mask="99/99/9999"
         defaultValue={defaultValue}
         onChange={onChange}
+        inputmode="numeric"
+        placeholder="dd/mm/aaaa"
       />
     </div>
   );
