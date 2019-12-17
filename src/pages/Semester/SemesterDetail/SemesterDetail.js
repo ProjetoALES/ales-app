@@ -56,6 +56,13 @@ const SemesterDetail = ({ match, history }) => {
       <Modal.Header closeButton>
         <Modal.Title>{`Deletar mesmo ${semester.name}?`}</Modal.Title>
       </Modal.Header>
+      <Modal.Body>
+        <p>
+          Tem certeza? Deletar o semestre fará com que tudo que estiver
+          associado a este semestre (matérias, alunos, eventos, etc) seja
+          perdido.
+        </p>
+      </Modal.Body>
       <Modal.Footer>
         <Button variant="danger" onClick={deleteSemester}>
           Deletar
@@ -94,7 +101,11 @@ const SemesterDetail = ({ match, history }) => {
       </div>
       <div className={styles.buttonsContainer}>
         <div className={styles.actionButtonsContainer}>
-          <Button type="button" variant="success">
+          <Button
+            type="button"
+            variant="success"
+            onClick={() => history.push(`/semesters/${semester.name}/edit`)}
+          >
             Editar
           </Button>
           <Button type="button" variant="danger" onClick={() => showModal()}>
