@@ -1,0 +1,46 @@
+@import "styles/colors.module.scss";
+
+.newSemesterContainer {
+  padding: 4em 0 10em 0;
+  margin: 0 2em;
+  text-align: center;
+
+  h3 {
+    color: $gray-dark;
+    margin-bottom: 2em;
+  }
+
+  .formContainer {
+    .inputsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin-top: 2em;
+    }
+
+    .buttonsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        left: 0;
+        margin: 1em 0;
+        padding: 0.5em 2em;
+        font-weight: 500;
+        &:first-child {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .newSemesterContainer {
+    width: 20%;
+    margin: auto;
+    padding: 10em 0 24em 0;
+  }
+}

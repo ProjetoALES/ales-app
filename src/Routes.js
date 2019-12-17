@@ -8,9 +8,10 @@ import ResetPasswordRequested from "./pages/ResetPasswordRequested/ResetPassword
 import NewPassword from "./pages/NewPassword/NewPassword";
 import NewPasswordSet from "./pages/NewPasswordSet/NewPasswordSet";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Semesters from "./pages/Semesters/Semesters";
-import SemesterDetail from "./pages/SemesterDetail/SemesterDetail";
-import NewSemester from "./pages/NewSemester/NewSemester";
+import Semesters from "./pages/Semester/Semesters/Semesters";
+import SemesterDetail from "./pages/Semester/SemesterDetail/SemesterDetail";
+import NewSemester from "./pages/Semester/NewSemester/NewSemester";
+import SemesterEdit from "./pages/Semester/SemesterEdit/SemesterEdit";
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -49,6 +50,11 @@ const Routes = () => {
       <PrivateRoute path="/semesters" exact component={Semesters} />
       <PrivateRoute path="/semesters/:name" exact component={SemesterDetail} />
       <PrivateRoute path="/new-semester" exact component={NewSemester} />
+      <PrivateRoute
+        path="/semesters/:name/edit"
+        exact
+        component={SemesterEdit}
+      />
     </Switch>
   );
 };
