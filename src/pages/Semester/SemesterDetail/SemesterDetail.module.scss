@@ -1,8 +1,10 @@
 @import "styles/colors.module.scss";
 
 .semesterDetailContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: center;
 
   .titleContainer {
     padding: 2em 0;
@@ -44,7 +46,6 @@
 @media only screen and (min-width: 900px) {
   .semesterDetailContainer {
     padding: 3em 0;
-    margin-bottom: 15em;
 
     .buttonsContainer {
       width: 30%;

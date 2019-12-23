@@ -1,6 +1,7 @@
 @import "styles/colors.module.scss";
 
 .semestersContainer {
+  height: 100vh;
   margin-bottom: 20em;
   padding: 3em 1em;
   text-align: center;
@@ -24,10 +25,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-  }
-
-  .spinnerContainer {
-    margin: 3em 0;
   }
 }
 
