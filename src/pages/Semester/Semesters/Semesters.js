@@ -4,7 +4,8 @@ import api from "services/api";
 import { notify } from "helpers";
 
 import Card from "components/Card/Card";
-import { Button, Spinner } from "react-bootstrap";
+import Loader from "components/Loader/Loader";
+import { Button } from "react-bootstrap";
 import styles from "./Semesters.module.scss";
 
 const Semesters = ({ history }) => {
@@ -35,12 +36,6 @@ const Semesters = ({ history }) => {
     return [firstCol, secondCol];
   };
 
-  const spinnerContainer = (
-    <div className={styles.spinnerContainer}>
-      <Spinner animation="border" variant="primary" />
-    </div>
-  );
-
   const color = "blue";
 
   return (
@@ -50,7 +45,7 @@ const Semesters = ({ history }) => {
         Novo Semestre
       </Button>
       {isLoading ? (
-        spinnerContainer
+        <Loader animation="border" variant="primary" />
       ) : (
         <div className={styles.cardsContainer}>
           <div className={styles.cardsCol}>

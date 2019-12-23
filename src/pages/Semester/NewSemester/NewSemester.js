@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import api from "services/api";
 import { notify } from "helpers";
 
+import Loader from "components/Loader/Loader";
 import InputDate from "components/InputDate/InputDate";
 import { Form, Button } from "react-bootstrap";
 
@@ -14,6 +15,7 @@ const NewSemester = ({ history }) => {
     new Date().toLocaleDateString("pt-br")
   );
   const [endDate, setEndDate] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const verifyDate = date => {
     const [day, month, year] = date.split("/");
@@ -40,53 +42,60 @@ const NewSemester = ({ history }) => {
       return;
     }
     try {
+      setIsLoading(true);
       await api.post("/semesters/", { name, start: startDate, end: endDate });
       history.push("/semesters");
       notify("Semestre criado com sucesso!", "success");
     } catch (error) {
       notify("Ops! Parece que houve algum problema", "error");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className={styles.newSemesterContainer}>
       <h3>Novo Semestre</h3>
-      <form className={styles.formContainer}>
-        <div className={styles.formGroup}>
-          <Form.Control
-            type="text"
-            placeholder="Nome"
-            maxLength={6}
-            onChange={e => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-        <div className={styles.inputsContainer}>
-          <InputDate
-            label="Início"
-            onChange={e => setStartDate(e.target.value)}
-            defaultValue={startDate}
-          />
-          <InputDate label="Fim" onChange={e => setEndDate(e.target.value)} />
-        </div>
-        <div className={styles.buttonsContainer}>
-          <Button
-            type="submit"
-            variant="success"
-            onClick={e => submitNewSemester(e)}
-          >
-            Adicionar
-          </Button>
-          <Button
-            type="button"
-            variant="primary"
-            onClick={() => history.push("/semesters")}
-          >
-            Voltar
-          </Button>
-        </div>
-      </form>
+      {isLoading ? (
+        <Loader animation="border" variant="primary" />
+      ) : (
+        <form className={styles.formContainer}>
+          <div className={styles.formGroup}>
+            <Form.Control
+              type="text"
+              placeholder="Nome"
+              maxLength={6}
+              onChange={e => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className={styles.inputsContainer}>
+            <InputDate
+              label="Início"
+              onChange={e => setStartDate(e.target.value)}
+              defaultValue={startDate}
+            />
+            <InputDate label="Fim" onChange={e => setEndDate(e.target.value)} />
+          </div>
+          <div className={styles.buttonsContainer}>
+            <Button
+              type="submit"
+              variant="success"
+              onClick={e => submitNewSemester(e)}
+            >
+              Adicionar
+            </Button>
+            <Button
+              type="button"
+              variant="primary"
+              onClick={() => history.push("/semesters")}
+            >
+              Voltar
+            </Button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

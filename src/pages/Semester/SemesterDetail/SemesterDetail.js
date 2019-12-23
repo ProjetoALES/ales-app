@@ -4,7 +4,8 @@ import api from "services/api";
 import { notify } from "helpers";
 import * as moment from "moment";
 
-import { Button, Spinner, Modal } from "react-bootstrap";
+import Loader from "components/Loader/Loader";
+import { Button, Modal } from "react-bootstrap";
 import styles from "./SemesterDetail.module.scss";
 
 const SemesterDetail = ({ match, history }) => {
@@ -74,52 +75,54 @@ const SemesterDetail = ({ match, history }) => {
     </Modal>
   );
 
-  const spinnerContainer = (
-    <div className={styles.spinnerContainer}>
-      <Spinner animation="border" variant="primary" />
-    </div>
-  );
-
-  return isLoading ? (
-    spinnerContainer
-  ) : (
+  return (
     <div className={styles.semesterDetailContainer}>
       {confirmDeleteModal}
-      <div className={styles.titleContainer}>
-        <h3>Semestre</h3>
-        <h4>{semester.name}</h4>
-      </div>
-      <div className={styles.semesterInfoContainer}>
-        <div className={styles.infoContainer}>
-          <h5>Início</h5>
-          <span>{semester.start}</span>
-        </div>
-        <div className={styles.infoContainer}>
-          <h5>Fim</h5>
-          <span>{semester.end}</span>
-        </div>
-      </div>
-      <div className={styles.buttonsContainer}>
-        <div className={styles.actionButtonsContainer}>
-          <Button
-            type="button"
-            variant="success"
-            onClick={() => history.push(`/semesters/${semester.name}/edit`)}
-          >
-            Editar
-          </Button>
-          <Button type="button" variant="danger" onClick={() => showModal()}>
-            Deletar
-          </Button>
-        </div>
-        <Button
-          type="button"
-          variant="primary"
-          onClick={() => history.push("/semesters/")}
-        >
-          Voltar
-        </Button>
-      </div>
+      {isLoading ? (
+        <Loader animation="border" variant="primary" />
+      ) : (
+        <>
+          <div className={styles.titleContainer}>
+            <h3>Semestre</h3>
+            <h4>{semester.name}</h4>
+          </div>
+          <div className={styles.semesterInfoContainer}>
+            <div className={styles.infoContainer}>
+              <h5>Início</h5>
+              <span>{semester.start}</span>
+            </div>
+            <div className={styles.infoContainer}>
+              <h5>Fim</h5>
+              <span>{semester.end}</span>
+            </div>
+          </div>
+          <div className={styles.buttonsContainer}>
+            <div className={styles.actionButtonsContainer}>
+              <Button
+                type="button"
+                variant="success"
+                onClick={() => history.push(`/semesters/${semester.name}/edit`)}
+              >
+                Editar
+              </Button>
+              <Button
+                type="button"
+                variant="danger"
+                onClick={() => showModal()}
+              >
+                Deletar
+              </Button>
+            </div>
+            <Button
+              type="button"
+              variant="primary"
+              onClick={() => history.push("/semesters/")}
+            >
+              Voltar
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

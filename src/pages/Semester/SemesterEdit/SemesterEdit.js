@@ -4,8 +4,9 @@ import api from "services/api";
 import { notify } from "helpers";
 import * as moment from "moment";
 
+import Loader from "components/Loader/Loader";
 import InputDate from "components/InputDate/InputDate";
-import { Form, Button, Spinner } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import styles from "./SemesterEdit.module.scss";
 
@@ -69,16 +70,10 @@ const SemesterEdit = ({ history, match }) => {
     }
   };
 
-  const spinnerContainer = (
-    <div className={styles.spinnerContainer}>
-      <Spinner animation="border" variant="primary" />
-    </div>
-  );
-
   return (
     <div className={styles.newSemesterContainer}>
       {isLoading ? (
-        spinnerContainer
+        <Loader animation="border" variant="primary" />
       ) : (
         <>
           <h3>Editar Semestre</h3>

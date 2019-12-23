@@ -32,12 +32,12 @@ const NewPassword = ({ history, match }) => {
         new_password: newPassword,
         re_new_password: reNewPassword
       });
-      setIsLoading(false);
       history.push("/new-password-set");
       notify(`Senha alterada com sucesso!`, "success");
-    } catch (err) {
-      setIsLoading(false);
+    } catch (error) {
       notify("Ops! Aconteceu algum erro", "error");
+    } finally {
+      setIsLoading(false);
     }
   };
 
